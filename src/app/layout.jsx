@@ -1,9 +1,12 @@
 import { Geist, Geist_Mono, Lexend } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
+import MyContainer from "@/components/MyContainer";
 
 const lexend = Lexend({
-  weight:["100","200","300","400","500","600","800"],
-})
+  weight: ["100", "200", "300", "400", "500", "600", "800"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -13,10 +16,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${lexend.className} antialiased`}
-      >
-        {children}
+      <body className={`${lexend.className} antialiased`}>
+        <header>
+          <MyContainer>
+            <Navbar></Navbar>
+          </MyContainer>
+        </header>
+        
+        <main>
+          <MyContainer>{children}</MyContainer>
+        </main>
+
+        <footer>
+          <MyContainer>
+            <Footer></Footer>
+          </MyContainer>
+        </footer>
       </body>
     </html>
   );
