@@ -19,7 +19,6 @@ const Navbar = () => {
       <li>
         <NavLink href={"/contact"}>Contact</NavLink>
       </li>
-     
     </>
   );
 
@@ -51,16 +50,23 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Logo></Logo>
+        <div className="w-26">
+          <Logo></Logo>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-          <div className="navbar-end md:space-x-3.5">
-              <Link href={"/cart"} className="btn btn-primary rounded-xl  " >  <MdShoppingCart size={30}></MdShoppingCart> </Link>
-              <Link href={"/login"}>
-                <button className="btn btn-secondary btn-outline rounded-xl ">Login</button>
-              </Link>
+      <div className="navbar-end md:space-x-3.5">
+        <Link href={"/cart"} className="btn btn-primary rounded-xl  ">
+          {" "}
+          <MdShoppingCart size={30}></MdShoppingCart>{" "}
+        </Link>
+        <Link href={"/login"}>
+          <button className="btn btn-secondary btn-outline rounded-xl ">
+            Login
+          </button>
+        </Link>
       </div>
     </div>
   );
