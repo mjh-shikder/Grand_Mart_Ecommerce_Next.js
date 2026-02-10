@@ -1,12 +1,20 @@
 import { Geist, Geist_Mono, Lexend } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import MyContainer from "@/components/MyContainer";
 
+
 const lexend = Lexend({
   weight: ["100", "200", "300", "400", "500", "600", "800"],
 });
+
+// Using Local Bangla Fonts
+export const fontBangla = localFont({
+  src: './../fonts/mayaboti-normal.ttf',
+  //  weight: 
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -22,15 +30,13 @@ export default function RootLayout({ children }) {
             <Navbar></Navbar>
           </MyContainer>
         </header>
-        
-        <main>
+
+        <main className="min-h-[calc(100vh-324px)]">
           <MyContainer>{children}</MyContainer>
         </main>
 
         <footer>
-          <MyContainer>
-            <Footer></Footer>
-          </MyContainer>
+          <Footer></Footer>
         </footer>
       </body>
     </html>
