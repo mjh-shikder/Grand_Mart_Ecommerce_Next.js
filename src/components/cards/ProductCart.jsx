@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
     : price;
 
   return (
-    <div className="card w-80 bg-base-100 shadow-md hover:shadow-xl transition">
+    <div className="card w-85 bg-base-100 shadow-md hover:shadow-xl transition">
       {/* Image */}
       <figure className="relative h-56">
         <Image src={image} alt={title} fill className="object-cover" />
