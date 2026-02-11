@@ -23,6 +23,7 @@ const ProductCardSkeleton = () => {
 
         {/* Button */}
         <div className="skeleton h-10 w-full"></div>
+        <div className="skeleton h-10 w-full"></div>
       </div>
     </div>
   );

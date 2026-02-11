@@ -1,5 +1,5 @@
-// components/ProductCard.jsx
 import Image from "next/image";
+import Link from "next/link";
 import { FaStar, FaShoppingCart } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
@@ -47,10 +47,13 @@ const ProductCard = ({ product }) => {
 
         {/* Button */}
         <div className="card-actions mt-2">
-          <button className="btn btn-primary btn-sm w-full gap-2">
+          <button className="btn btn-secondary btn-sm w-full gap-2">
             <FaShoppingCart />
             Add to Cart
           </button>
+          <Link href={`/products/${product._id}`} className="btn btn-primary btn-outline btn-sm w-full gap-2">
+            View Details
+          </Link>
         </div>
       </div>
     </div>
