@@ -5,7 +5,7 @@ const loading = () => {
     return (
         <div className="flex flex-col min-h-screen justify-center items-center">
 
-            <div className="w-48 animate-ping">
+            <div className="w-48 animate-ping mb-5">
             <Logo></Logo>
             </div>
             <h2 className='text-5xl font-semibold mt-10 animate-pulse'>Loading</h2>
