@@ -1,10 +1,67 @@
 import Image from "next/image";
 import { FaStar, FaShoppingCart } from "react-icons/fa";
 import ProductDetailsSkeleton from "./loading";
+import { getSingleProduct } from "@/server/products";
+
+
+// export async function generateMetadata({ params }) {
+//   const { id } = await params;
+//   const product = await getSingleProduct(id);
+//   // Replace with your real fetch logic
+
+//   const {
+//     title,
+//     bangla,
+//     image,
+//     price,
+//     discount,
+//     ratings,
+//     reviews,
+//     sold,
+//     description,
+//     info,
+//     qna,
+//   } = product;
+
+//   if (!product) {
+//     return {
+//       title: "Product Not Found | Grand Mart",
+//     };
+//   }
+
+//   return {
+//     title: title,
+//     description: product.description,
+
+//     openGraph: {
+//       type: "product",
+//       title: title,
+//       description: product.description,
+//       url: `/products/${product.id}`,
+//       images: [
+//         {
+//           url: image,
+//           width: 1200,
+//           height: 630,
+//           alt: title,
+//         },
+//       ],
+//     },
+
+//     twitter: {
+//       card: "summary_large_image",
+//       title: title,
+//       description: description,
+//       images: [image],
+//     },
+//   };
+// }
+
 
 const ProductDetailsPage = async ({ params }) => {
   // simulate loading / API call
-  const product = await getProduct(params.id);
+  const {id} = await params
+  const product = await getSingleProduct(id);
 
   if (!product) return <ProductDetailsSkeleton />;
 
@@ -105,33 +162,3 @@ const ProductDetailsPage = async ({ params }) => {
 };
 
 export default ProductDetailsPage;
-
-/* Mock API */
-async function getProduct(id) {
-  await new Promise((res) => setTimeout(res, 800));
-
-  return {
-    title: "Number and Counting Learning Board",
-    bangla: "সংখ্যা ও গণনা শেখার শিক্ষামূলক বোর্ড",
-    image: "https://i.ibb.co.com/p6Q0fchX/81a72-DDFc-KL-AC-SL1500.jpg",
-    price: 1250,
-    discount: 10,
-    ratings: 4.6,
-    reviews: 19,
-    sold: 31,
-    description:
-      "Number and Counting Learning Board টি শিশুদের প্রাথমিক গণিত শেখার জন্য একটি কার্যকর educational toy。\n\nএই learning board এর মাধ্যমে বাচ্চারা ১ থেকে ২০ পর্যন্ত সংখ্যা চিনতে শেখে।",
-    info: [
-      "সংখ্যা ও গণনার ধারণা তৈরি করে",
-      "প্রাথমিক গণিত শেখার জন্য উপযোগী",
-      "হ্যান্ডস-অন লার্নিং নিশ্চিত করে",
-      "নন-টক্সিক ও শিশু-নিরাপদ উপকরণ",
-    ],
-    qna: [
-      {
-        question: "এই বোর্ডটি কোন বয়সের শিশুদের জন্য উপযুক্ত?",
-        answer: "৩ থেকে ৬ বছর বয়সী শিশুদের জন্য এটি সবচেয়ে উপযোগী।",
-      },
-    ],
-  };
-}
